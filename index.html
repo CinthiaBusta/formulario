@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+   
+        <title>Create Account</title>
+        <style>
+        
+              @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+
+              html {
+            background-color: #37474F;
+            font-family: "Nunito", sans-serif;
+             }
+             
+            fieldset {
+            background: #546E7A;
+            font-family: "Nunito", sans-serif;
+            position: fixed;
+            border-width: 7px 7px 7px 7px;
+            border-style: ridge;
+            border-color: #546E7A;
+            }
+            
+            h1 {
+            text-align: left;
+            font-family: "Nunito", sans-serif;
+            font-weight: bolder;
+            font-size: 30px;
+            color: #ECEFF1;
+            }
+            
+            button {
+            background-color: #7C4DFF;
+            text-align: center;
+            font-size: 18px;
+            padding: 24px;
+            margin-top: 20px;
+            border-radius: 15px;
+            }
+            
+             input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #ECEFF1
+            }
+            
+            input[type=email], select
+            {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #ECEFF1
+            }
+            
+            input[type=password], select
+            {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #ECEFF1
+            }
+            
+            input[type=password], select
+            {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #ECEFF1
+            }
+        
+        </style>
+        
+    </head>
+    
+    <body>
+    <form action="./procesaformulario.php">
+        
+    <fieldset>  
+        
+        <h1>Create Account</h1>
+            
+        <p>Nombre
+            <input type="text" name="nombre" value="" pattern="[A-Za-z]+" required/></p>
+        <br>
+        <p>Email
+        <input type="email" name="email" value="" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required/>
+        <!---
+
+        otro posible patron "[A-Za-z0-9]+\@.+" 
+        
+        el de chat gpt "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+
+
+        --->
+        
+        </p>
+        <br>
+        <p>Clave
+            <input type="password" name="clave" minlength="8" required/></p>
+        <p>Confirme su clave
+            <input type="password" name="confirme-clave" minlength="8" required/></p>
+        <br>
+        <button type="submit">ENVIAR</button>
+        
+    </fieldset>   
+        </form>
+        
+    <script src="email-validation.js">
+        ValidateEmail()
+        
+    </script>
+        
+    <script src="script.js">
+        
+    </script>
+        
+    <script>
+      const form = document.querySelector('fieldset');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const passwordInput = document.querySelector('input[name="clave"]');
+        const confirmPasswordInput = document.querySelector('input[name="confirmar-clave"]');
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        if (password !== confirmPassword) {
+          alert('Las contraseñas no coinciden');
+          return;
+        }
+        // Si las contraseñas coinciden, puedes enviar el formulario aquí.
+        form.submit();
+      });
+    </script>
+        
+    </body>
+
+
+
+</html>
+  
+  
